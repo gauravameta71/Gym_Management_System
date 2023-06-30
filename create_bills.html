@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gym Bill</title>
+    <style>
+      * {
+        background-image: url("https://cdn.pixabay.com/photo/2016/11/22/22/24/adult-1850925_1280.jpg");
+        /* background-repeat: no-repeat; */
+        /* background-size: cover; */
+      }
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        
+      }
+      h1 {
+        text-align: center;
+        color: aliceblue;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        color: aliceblue;
+      }
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        color: aliceblue;
+      }
+      .total {
+        text-align: right;
+        font-weight: bold;
+        color: aliceblue;
+      }
+       .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn-submit:hover {
+            background-color: #45a049;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Gym Bill</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody id="bill-items">
+          <!-- Bill items will be dynamically added here -->
+        </tbody>
+        <tfoot>
+          <tr>
+            <td class="total">Total:</td>
+            <td id="total-amount">0</td>
+          </tr>
+        </tfoot>
+      </table>
+      <button class="btn-submit" onclick="addItem()">Add Item</button>
+      <script>
+        function addItem() {
+          var description = prompt("Enter item description:");
+          var amount = parseFloat(prompt("Enter item amount:"));
+
+          if (description && !isNaN(amount)) {
+            var table = document.getElementById("bill-items");
+            var row = table.insertRow();
+            var descriptionCell = row.insertCell();
+            var amountCell = row.insertCell();
+
+            descriptionCell.innerHTML = description;
+            amountCell.innerHTML = amount.toFixed(2);
+
+            updateTotal();
+          } else {
+            alert(
+              "Invalid input. Please enter a valid description and amount."
+            );
+          }
+        }
+
+        function updateTotal() {
+          var table = document.getElementById("bill-items");
+          var rows = table.rows;
+          var total = 0;
+
+          for (var i = 1; i < rows.length; i++) {
+            var amountCell = rows[i].cells[1];
+            var amount = parseFloat(amountCell.innerHTML);
+            total += amount;
+          }
+
+          document.getElementById("total-amount").innerHTML = total.toFixed(2);
+        }
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gym Bill Receipts</title>
+  <style>
+    /* CSS styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    *{
+    background-image: url("https://cdn.pixabay.com/photo/2016/11/22/22/24/adult-1850925_1280.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+    h1 {
+      text-align: center;
+      color: azure;
+    }
+
+    .receipts-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 30px;
+    }
+
+    .receipts-list li {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .receipts-list li .receipt-details {
+      display: flex;
+      color: azure;
+      flex-direction: column;
+    }
+
+    .receipts-list li .receipt-details .receipt-date {
+      font-weight: bold;
+      color: azure;
+    }
+
+    .receipts-list li .receipt-details .receipt-amount {
+      color: #666;
+      color: azure;
+    }
+    .button {
+      display: inline-block;
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Gym Bill Receipts</h1>
+
+  <ul class="receipts-list">
+    <li>
+      <div class="receipt-details">
+        <span class="receipt-date">Date: June 1, 2023</span>
+        <span class="receipt-amount">Amount: $50</span>
+      </div>
+      <button class="button" onclick="deleteReceipt(this)">Delete</button>
+    </li>
+    <li>
+      <div class="receipt-details">
+        <span class="receipt-date">Date: June 15, 2023</span>
+        <span class="receipt-amount">Amount: $50</span>
+      </div>
+      <button class="button" onclick="deleteReceipt(this)">Delete</button>
+    </li>
+    <li>
+      <div class="receipt-details">
+        <span class="receipt-date">Date: June 23, 2023</span>
+        <span class="receipt-amount">Amount: $50</span>
+      </div>
+      <button class="button" onclick="deleteReceipt(this)">Delete</button>
+    </li>
+  </ul>
+
+  <script>
+    // JavaScript logic
+    function deleteReceipt(button) {
+      var listItem = button.parentNode;
+      listItem.parentNode.removeChild(listItem);
+    }
+  </script>
+</body>
+</html>

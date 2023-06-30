@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gym Report Export</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1>Gym Report Export</h1>
+  
+  <form id="export-form">
+    <label for="report-type">Report Type:</label>
+    <select id="report-type" name="report-type">
+      <option value="daily">Daily Report</option>
+      <option value="weekly">Weekly Report</option>
+      <option value="monthly">Monthly Report</option>
+    </select>
+    
+    <button type="submit">Export</button>
+  </form>
+  
+  <div id="export-results"></div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
